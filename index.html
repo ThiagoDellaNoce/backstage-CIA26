@@ -425,7 +425,10 @@ function atualizar(btn) {
       } else {
         showErr('Erro ao carregar dados: ' + (resp.error || 'resposta inválida'));
       }
-    })
+    }), {
+    body: JSON.stringify(payload),
+    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    }
     .catch(function(err){
       if(btn) btn.classList.remove('loading');
       showErr('Erro de conexão: ' + err.message + '<br><small>Verifique se o Apps Script está publicado como Web App público.</small>');
