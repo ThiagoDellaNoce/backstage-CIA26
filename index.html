@@ -415,7 +415,9 @@ if (SCRIPT_URL === 'COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT_DEPLOY') {
 // ============ API calls ============
 function atualizar(btn) {
   if(btn) btn.classList.add('loading');
-  fetch(SCRIPT_URL)
+  fetch(SCRIPT_URL, {
+    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    })
     .then(function(r){ return r.json(); })
     .then(function(resp){
       if(btn) btn.classList.remove('loading');
@@ -425,10 +427,7 @@ function atualizar(btn) {
       } else {
         showErr('Erro ao carregar dados: ' + (resp.error || 'resposta inválida'));
       }
-    }), {
-    body: JSON.stringify(payload),
-    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
-    }
+    })
     .catch(function(err){
       if(btn) btn.classList.remove('loading');
       showErr('Erro de conexão: ' + err.message + '<br><small>Verifique se o Apps Script está publicado como Web App público.</small>');
