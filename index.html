@@ -317,7 +317,7 @@ button{font-family:inherit;cursor:pointer;}
  *    - Execute as: Me
  *    - Who has access: Anyone
  */
-const SCRIPT_URL = 'https://script.googleusercontent.com/a/macros/exp.rec.br/echo?user_content_key=AUkAhnSjegBnTgejPaIHvpcjI3zNG7YC_ubohrkkqoj1np3FJIKqt8xzS5_Zxwi6yDLAMhuS-e6D7i28FzzNYzlzlW39lkbSH3TcoCnbeXAMDrUSukmtcCYzcBHmwbvLNwke8DzZfUYMcxO762y4RrhiT2yafhH59jOrxKvRGj3ysUni-rUvE1nxPn37imUOlj-osxZg8baFrzgoVYnv7PXFOfcil6Qmm2uEZaOw1-ogbuKrqzyPF1Fk-g2yOEqe4Y_41k91mzAplVwOgIOZrFmvpsz0D06wKE9nlP9T_mky&lib=M72IrxvA6LLOF_WGkYthGLreUs6YUnKQP';
+const SCRIPT_URL = 'https://script.googleusercontent.com/a/macros/exp.rec.br/echo?user_content_key=AUkAhnTZiK7HQ1Y_1v-FXpjTonZnJJKzC_1k1yiCAc6BBC695wjNG4S5ip6jQOOPtSPtesKMR3Jal6kHTKbj-IOlnQMOjlHygAjFAsfcFPUeX5hhbd0Fxisy44j-G3574gBOMIVX7gcHZPiyb_gs9dJEkcJaJQR2U3zNLSVjLm2lC61oQcILNJuyoIdXv50ZuELYr-vCEdKKMmjw3ixorLib9Bg80M7q5AJ5etj2Ti3dHy76Q3uYBiSbDJ1GujRfbcc3v54FfckcDyd6Vf3EPqYOJuVGFzJvgUS7irWvNvk2&lib=M72IrxvA6LLOF_WGkYthGLreUs6YUnKQP';
 
 // Dados do evento (para o countdown)
 const NOME_EVENTO = 'CIA26';
@@ -416,6 +416,7 @@ if (SCRIPT_URL === 'COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT_DEPLOY') {
 function atualizar(btn) {
   if(btn) btn.classList.add('loading');
   fetch(SCRIPT_URL, {
+    method: 'GET',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Access-Control-Allow-Origin': '*' }
     })
     .then(function(r){ return r.json(); })
