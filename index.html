@@ -317,7 +317,7 @@ button{font-family:inherit;cursor:pointer;}
  *    - Execute as: Me
  *    - Who has access: Anyone
  */
-const SCRIPT_URL = 'https://script.google.com/a/macros/exp.rec.br/s/AKfycbxssqxiSB54ZqhWxge79xr1h0fo82OrreHjs9NzCBgb18L0XcICezVEs_I6TPWLNwKA/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxM7-PZ-RgT4YOikM6BoSdt4Ovj_dsgQIMvikikbn8m2_INz2WanseBowqubAIamxI/exec';
 
 // Dados do evento (para o countdown)
 const NOME_EVENTO = 'CIA26';
@@ -436,7 +436,7 @@ function apiPost(payload, callback) {
   fetch(SCRIPT_URL, {
     method: 'POST',
     body: JSON.stringify(payload),
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
   })
   .then(function(r){ return r.json(); })
   .then(function(resp){
