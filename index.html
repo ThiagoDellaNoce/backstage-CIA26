@@ -416,7 +416,7 @@ if (SCRIPT_URL === 'COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT_DEPLOY') {
 function atualizar(btn) {
   if(btn) btn.classList.add('loading');
   fetch(SCRIPT_URL, {
-    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Access-Control-Allow-Origin': '*' }
     })
     .then(function(r){ return r.json(); })
     .then(function(resp){
@@ -438,7 +438,7 @@ function apiPost(payload, callback) {
   fetch(SCRIPT_URL, {
     method: 'POST',
     body: JSON.stringify(payload),
-    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Access-Control-Allow-Origin': '*' }
   })
   .then(function(r){ return r.json(); })
   .then(function(resp){
